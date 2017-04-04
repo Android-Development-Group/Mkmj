@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/select_rvitem"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="0.5dp"
+                android:layout_marginRight="0.5dp"
+                android:layout_marginTop="1dp"
+
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+
+        <ImageView
+            android:id="@+id/iv_hotSell_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/img_xj"
+            />
+
+        <TextView
+            android:id="@+id/tv_hotSell_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_hotSell_img"
+            android:layout_marginTop="2dp"
+            android:maxLines="2"
+            android:minLines="2"
+            android:text="LOMO拍立得相机"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_hotSell_name">
+
+            <TextView
+                android:id="@+id/tv_hotSell_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="2dp"
+                android:text="¥1000"
+                android:textColor="@color/appRed"/>
+
+            <TextView
+                android:id="@+id/tv_hotSell_jifen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/shape_textbg"
+                android:padding="3dp"
+                android:text="2046积分"
+                android:textColor="@color/white"
+                android:textSize="12sp"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!--<ImageView-->
+        <!--android:id="@+id/view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="10dp"-->
+        <!--android:layout_below="@+id/rl"-->
+        <!--android:background="@color/appBackbroud"/>-->
+
+
+</RelativeLayout>

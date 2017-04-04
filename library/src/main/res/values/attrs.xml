@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--RoundProgressBar-->
+    <declare-styleable name="RoundProgressBar">
+        <attr name="roundColor" format="color"/>
+        <attr name="roundProgressColor" format="color"/>
+        <attr name="roundWidth" format="dimension"></attr>
+        <attr name="textColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="max" format="integer"></attr>
+        <attr name="textIsDisplayable" format="boolean"></attr>
+        <attr name="style">
+            <enum name="STROKE" value="0"></enum>
+            <enum name="FILL" value="1"></enum>
+        </attr>
+    </declare-styleable>
+
+    <!--RoundImageView-->
+    <declare-styleable name="RoundImageView">
+        <attr name="border_outside_color" format="color"/>
+        <attr name="border_inside_color" format="color"/>
+        <attr name="border_thickness" format="dimension"/>
+    </declare-styleable>
+
+    <!--PullScrollView-->
+    <declare-styleable name="PullScrollView">
+        <attr name="header" format="reference"/>
+        <attr name="headerHeight" format="dimension"/>
+        <attr name="headerVisibleHeight" format="dimension"/>
+    </declare-styleable>
+
+    <!--NavigationBar-->
+    <declare-styleable name="NavigationBar">
+        <attr name="nav_left_icon" format="reference"/>
+        <attr name="nav_right_icon" format="reference"/>
+        <attr name="nav_main_title" format="string"/>
+        <attr name="nav_main_title_color" format="color"/>
+        <attr name="nav_dis_main_title_color" format="color"/>
+        <attr name="nav_main_title_size" format="dimension|reference"/>
+        <attr name="nav_left_title" format="string"/>
+        <attr name="nav_left_title_color" format="color"/>
+        <attr name="nav_dis_left_title_color" format="color"/>
+        <attr name="nav_left_title_size" format="dimension|reference"/>
+        <attr name="nav_right_title" format="string"/>
+        <attr name="nav_right_title_color" format="color"/>
+        <attr name="nav_dis_right_title_color" format="color"/>
+        <attr name="nav_right_title_size" format="dimension|reference"/>
+        <attr name="nav_divider_color" format="color"/>
+        <attr name="nav_has_divider" format="boolean"/>
+        <attr name="nav_has_right_title_icon" format="boolean"/>
+        <attr name="nav_right_title_indicator_background" format="reference"/>
+        <attr name="nav_right_title_icon_text_color" format="color"/>
+    </declare-styleable>
+
+    <!--CleanableEditText-->
+    <declare-styleable name="CleanableEditText">
+        <attr name="maxLength" format="integer"/>
+    </declare-styleable>
+
+
+    <!--TimeButton-->
+    <declare-styleable name="TimeButton">
+        <attr name="countdown_time" format="integer"/>
+        <attr name="text_before" format="string"/>
+        <attr name="text_after" format="string"/>
+        <attr name="click_background" format="reference"/>
+        <attr name="unclick_background" format="reference"/>
+    </declare-styleable>
+
+    <!--SwitchButton-->
+    <declare-styleable name="SwitchButton">
+        <attr name="isSelect" format="boolean"/>
+        <attr name="selDrawable" format="reference"/>
+        <attr name="norDrawable" format="reference"/>
+    </declare-styleable>
+
+    <!--BasicRecyclerView-->
+    <declare-styleable name="BasicRecyclerView">
+        <attr name="layout_mode" format="enum">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+            <enum name="invalid_offset" value="2"/>
+            <enum name="grid" value="3"/>
+        </attr>
+        <attr name="column_num" format="integer"/>
+        <attr name="has_row_divider" format="boolean"/>
+        <attr name="has_rank_divider" format="boolean"/>
+        <attr name="divider_width" format="dimension"/>
+        <attr name="divider_height" format="dimension"/>
+        <attr name="divider_marginLeft" format="dimension"/>
+        <attr name="divider_marginRight" format="dimension"/>
+        <attr name="divider_marginTop" format="dimension"/>
+        <attr name="divider_marginBottom" format="dimension"/>
+        <attr name="divider_color" format="color"/>
+        <attr name="is_inner" format="boolean"/>
+        <attr name="is_process" format="boolean"/>
+        <attr name="process_background" format="integer|reference"/>
+        <attr name="is_start_animator" format="boolean"/>
+        <attr name="is_first_only" format="boolean"/>
+        <attr name="duration_animator" format="integer"/>
+    </declare-styleable>
+
+    <!--LoadMoreRecyclerView-->
+    <declare-styleable name="LoadMoreRecyclerView">
+        <attr name="loading_text" format="string"/>
+        <attr name="no_more_text" format="string"/>
+    </declare-styleable>
+
+</resources>

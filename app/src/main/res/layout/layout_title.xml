@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="55dp"
+              android:background="@color/appRed"
+              android:orientation="horizontal"
+              android:padding="2dp">
+
+    <TextView
+        android:id="@+id/tv_titlebar_saoyisao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:clickable="true"
+        android:drawableTop="@drawable/titlebar_saoyisao"
+        android:gravity="center"
+        android:text="@string/home_titleBar_saoyisao"
+        android:textColor="@color/white"
+        android:textSize="13sp"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_search"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/search_home_shape"
+        android:clickable="true"
+        >
+
+        <TextView
+            android:id="@+id/tv_titlebar_search"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:drawableLeft="@drawable/titlebar_search"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/home_titleBar_search"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_titlebar_xiaoxi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:clickable="true"
+        android:layout_marginRight="5dp"
+        android:drawableTop="@drawable/titlebar_xiaoxi"
+        android:gravity="center"
+        android:text="@string/home_titleBar_xiaoxi"
+        android:textColor="@color/white"
+        android:textSize="13sp"/>
+
+</LinearLayout>

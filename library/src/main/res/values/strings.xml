@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Library</string>
+
+    <!--LoadingHUD-->
+    <string name="loading">加载中...</string>
+
+    <string name="not_network">当前网络不可用</string>
+    <string name="fail_request">数据请求失败</string>
+
+</resources>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <net.yumig.mkmj.widget.MyScrollview
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/appBackbroud"
+            android:orientation="vertical">
+            <!--&lt;!&ndash;titlebar&ndash;&gt;-->
+            <!--<include layout="@layout/layout_title"/>-->
+
+            <!--&lt;!&ndash;tab&ndash;&gt;-->
+            <!--<android.support.design.widget.TabLayout-->
+            <!--android:id="@+id/tabTitle"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@color/white"-->
+            <!--android:clickable="false"-->
+            <!--app:tabIndicatorColor="@color/appRed"-->
+            <!--app:tabIndicatorHeight="3dp"-->
+            <!--app:tabPadding="3dp"-->
+            <!--app:tabSelectedTextColor="@color/appRed"-->
+            <!--app:tabTextAppearance="@style/TabLayoutTextStyle"-->
+            <!--app:tabTextColor="@color/appRed">-->
+            <!--</android.support.design.widget.TabLayout>-->
+
+            <!--轮播图-->
+            <com.youth.banner.Banner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                app:indicator_height="10dp"
+                app:indicator_margin="5dp"
+                app:indicator_width="10dp"/>
+
+            <!--积分好礼  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/img_jifenhaoli"/>
+
+                    <TextView
+                        android:id="@+id/tv_myjifen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:text="1024"
+                        android:textColor="#f00"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/tvjifen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@+id/tv_myjifen"
+                        android:layout_toStartOf="@+id/tv_myjifen"
+                        android:drawableLeft="@drawable/wodejifen"
+                        android:drawablePadding="8dp"
+                        android:text="我的积分"
+                        android:textSize="16sp"/>
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/iv_jifen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_jf"/>
+            </LinearLayout>
+
+            <!--热销单品 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                >
+
+                <TextView
+                    android:id="@+id/tv_tejia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:drawableLeft="@drawable/iconfont_tejia"
+                    android:drawablePadding="8dp"
+                    android:padding="10dp"
+                    android:text="@string/tejia"
+                    android:textSize="16sp"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_tejia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_tejia"
+                    android:background="@color/white"
+                    android:scrollbars="none"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                >
+
+
+                <TextView
+                    android:id="@+id/tv_hotSell"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:drawableLeft="@drawable/iconfont_rexiao"
+                    android:drawablePadding="8dp"
+                    android:padding="10dp"
+                    android:text="@string/hotSell"
+                    android:textSize="16sp"/>
+
+                <ImageView
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/tv_hotSell"
+                    android:background="@color/appBackbroud"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_hotSell"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/view"
+                    android:dividerHeight="10dp"
+                    android:scrollbars="none"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </net.yumig.mkmj.widget.MyScrollview>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!--titlebar-->
+        <include layout="@layout/layout_title"/>
+
+        <!--tab-->
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:clickable="false"
+            app:tabIndicatorColor="@color/appRed"
+            app:tabIndicatorHeight="3dp"
+            app:tabPadding="3dp"
+            app:tabSelectedTextColor="@color/appRed"
+            app:tabTextAppearance="@style/TabLayoutTextStyle"
+            app:tabTextColor="@color/appRed"/>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appBackbroud">
+
+    <!--标题栏-->
+    <com.currency.library.widget.view.NavigationBar
+        style="@style/style_navigation_bar"
+        app:nav_has_divider="true"
+        app:nav_left_icon="@drawable/back_selector"
+        app:nav_main_title="设置"
+        app:nav_main_title_color="@color/text_color"/>
+
+    <com.currency.library.widget.scroll.SupportScrollView
+        android:id="@+id/sv_setting"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/navigation_bar"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:padding="18dp"
+                android:text="个人资料"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <!--头像-->
+            <RelativeLayout
+                android:id="@+id/rl_header_icon"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/select_rvitem">
+
+                <!--间隔线-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/divider_color"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="18dp"
+                    android:gravity="center_vertical"
+                    android:text="头像"
+                    android:textSize="18sp"/>
+
+                <com.currency.library.widget.image.RoundImageView
+                    android:id="@+id/iv_header_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="30dp"
+                    android:src="@drawable/img_gerentouxiang"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/btn_arrow"/>
+
+            </RelativeLayout>
+
+            <!--用户昵称-->
+            <RelativeLayout
+                android:id="@+id/rl_nick_name"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/select_rvitem">
+
+                <!--间隔线-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/divider_color"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="18dp"
+                    android:gravity="center_vertical"
+                    android:text="昵称"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/tv_nick_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="30dp"
+                    android:ellipsize="end"
+                    android:gravity="right|center_vertical"
+                    android:maxEms="11"
+                    android:singleLine="true"
+                    android:text="TS."
+                    android:textSize="18sp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/btn_arrow"/>
+
+            </RelativeLayout>
+            <!--用户昵称-->
+            <RelativeLayout
+                android:id="@+id/rl_gender"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/white">
+
+                <!--间隔线-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/divider_color"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="18dp"
+                    android:gravity="center_vertical"
+                    android:text="性别"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/tv_man"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="25dp"
+                    android:layout_toLeftOf="@+id/tv_woman"
+                    android:layout_toStartOf="@+id/tv_woman"
+                    android:drawableLeft="@drawable/duihao_red"
+                    android:drawablePadding="5dp"
+                    android:gravity="right|center_vertical"
+                    android:text="男"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_woman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:drawableLeft="@drawable/duihao_gray"
+                    android:drawablePadding="5dp"
+                    android:gravity="right|center_vertical"
+                    android:text="女"
+                    android:textSize="18sp"/>
+
+            </RelativeLayout>
+            <!--地区-->
+            <RelativeLayout
+                android:id="@+id/rl_area"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/select_rvitem">
+
+                <!--间隔线-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/divider_color"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="18dp"
+                    android:gravity="center_vertical"
+                    android:text="地区"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/tv_area"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="30dp"
+                    android:ellipsize="end"
+                    android:gravity="right|center_vertical"
+                    android:maxEms="11"
+                    android:singleLine="true"
+                    android:text="北京"
+                    android:textSize="18sp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/btn_arrow"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:padding="18dp"
+                android:text="安全设置"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <!--手机号-->
+            <RelativeLayout
+                android:id="@+id/rl_phone"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/white">
+
+                <!--间隔线-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/divider_color"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="18dp"
+                    android:gravity="center_vertical"
+                    android:text="手机号"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/tv_phoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignBaseline="@+id/tv_resetPhone"
+                    android:layout_alignBottom="@+id/tv_resetPhone"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_toLeftOf="@+id/tv_resetPhone"
+                    android:layout_toStartOf="@+id/tv_resetPhone"
+                    android:gravity="right|center_vertical"
+                    android:text="176****0032"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/tv_resetPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="5dp"
+                    android:gravity="right|center_vertical"
+                    android:text="修改手机号"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="15sp"/>
+            </RelativeLayout>
+
+            <!--密码-->
+            <RelativeLayout
+                android:id="@+id/rl_password"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/white"
+                >
+
+                <!--间隔线-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/divider_color"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="18dp"
+                    android:gravity="center_vertical"
+                    android:text="密码"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/tv_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignBaseline="@+id/tv_resetPwd"
+                    android:layout_alignBottom="@+id/tv_resetPwd"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_toLeftOf="@+id/tv_resetPwd"
+                    android:layout_toStartOf="@+id/tv_resetPwd"
+                    android:gravity="right|center_vertical"
+                    android:text="********"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/tv_resetPwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="5dp"
+                    android:gravity="right|center_vertical"
+                    android:text=" 修改密码"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="15sp"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+    </com.currency.library.widget.scroll.SupportScrollView>
+
+    <Button
+        android:id="@+id/btn_loginout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/appRed"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="退出登录"
+        android:textColor="@color/white"
+        android:textSize="18sp"/>
+
+
+</RelativeLayout>

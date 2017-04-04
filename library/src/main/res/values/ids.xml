@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Fragment-->
+    <item name="fragment_container" type="id"/>
+
+    <!--NavigationBar-->
+    <item name="navigation_bar" type="id"/>
+    <item name="nav_background" type="id"/>
+
+    <!--BasicPopupWindow-->
+    <item name="popup_layout" type="id"/>
+</resources>
