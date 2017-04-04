@@ -17,6 +17,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 
+import com.currency.library.BaseApplication;
 import com.currency.library.R;
 import com.currency.library.controller.eventbus.EventBusHelper;
 import com.currency.library.controller.handler.WeakHandler;

@@ -1,7 +1,7 @@
 package net.yumig.mkmj;
 
 import com.currency.library.controller.ActivityManager;
-import com.currency.library.controller.BaseApplication;
+import com.currency.library.BaseApplication;
 import com.currency.library.http.OkHttpManager;
 import com.currency.library.http.interceptor.CacheStrategyInterceptor;
 import com.currency.library.http.interceptor.HeaderInfoInterceptor;

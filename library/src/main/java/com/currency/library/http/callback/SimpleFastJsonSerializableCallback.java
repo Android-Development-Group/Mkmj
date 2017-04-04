@@ -1,6 +1,6 @@
 package com.currency.library.http.callback;
 
-import com.currency.library.controller.BaseApplication;
+import com.currency.library.BaseApplication;
 import com.currency.library.utils.Logger;
 import com.currency.library.utils.StringUtils;
 import com.currency.library.utils.ToastUtils;

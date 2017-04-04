@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.currency.library.R;
-import com.currency.library.controller.BaseApplication;
+import com.currency.library.BaseApplication;
 import com.currency.library.utils.Logger;
 import com.currency.library.utils.NetworkLogUtil;
 import com.currency.library.utils.ResourcesUtils;

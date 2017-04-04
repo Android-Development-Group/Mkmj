@@ -1,4 +1,4 @@
-package com.currency.library.controller;
+package com.currency.library;
 
 import android.app.Application;
 import android.content.Context;
@@ -9,6 +9,7 @@ import com.currency.library.utils.DiskFileCacheHelper;
 import com.currency.library.utils.Logger;
 import com.currency.library.utils.hawk.Hawk;
 import com.currency.library.utils.hawk.LogLevel;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import butterknife.ButterKnife;
 import okhttp3.OkHttpClient;
@@ -23,7 +24,6 @@ import okhttp3.OkHttpClient;
 
 public abstract class BaseApplication extends Application {
     private static final String TAG = "BaseApplication";
-    public static final String FIR_API_TOKEN = "1b91eb3eaaea5f64ed127882014995dd";
     private static final String KEY_APP_ID = "app_id";
     private static Context mContext;
     private static OkHttpClient mOkHttpClient;//OkHttpClient
@@ -57,7 +57,7 @@ public abstract class BaseApplication extends Application {
         mOkHttpClient = initOkHttpClient();
 
         //开启bugly
-//        CrashReport.initCrashReport(getApplicationContext(), getBuglyKey(), isDebug);
+        CrashReport.initCrashReport(getApplicationContext(), getBuglyKey(), isDebug);
         //网络缓存最大时间
         maxAge = getNetworkCacheMaxAgeTime();
         //磁盘文件缓存器

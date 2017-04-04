@@ -34,7 +34,7 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
-import com.currency.library.controller.BaseApplication;
+import com.currency.library.BaseApplication;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

@@ -1,6 +1,6 @@
 package com.currency.library.http.interceptor;
 
-import com.currency.library.controller.BaseApplication;
+import com.currency.library.BaseApplication;
 import com.currency.library.utils.NetworkUtils;
 
 import java.io.IOException;

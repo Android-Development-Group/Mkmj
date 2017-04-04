@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.currency.library.R;
-import com.currency.library.controller.BaseApplication;
+import com.currency.library.BaseApplication;
 import com.currency.library.utils.FileUtils;
 import com.currency.library.utils.Logger;
 

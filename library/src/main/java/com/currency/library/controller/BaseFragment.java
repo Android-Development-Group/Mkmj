@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.currency.library.BaseApplication;
 import com.currency.library.R;
 import com.currency.library.controller.eventbus.EventBusHelper;
 import com.currency.library.controller.intent.FragmentIntent;

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'bugly'
 
 android {
     compileSdkVersion 23
@@ -63,6 +64,12 @@ android {
             flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
         }
     }
+}
+
+
+bugly {
+    appId = "1321456465"
+    appKey = "36vri546565FUAzg9"
 }
 
 dependencies {

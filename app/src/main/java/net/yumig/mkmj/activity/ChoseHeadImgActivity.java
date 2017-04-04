@@ -13,7 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.currency.library.controller.BaseApplication;
+import com.currency.library.BaseApplication;
 import com.currency.library.utils.ImageUtils;
 
 import net.yumig.mkmj.R;

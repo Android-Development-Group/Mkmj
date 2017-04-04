@@ -2,7 +2,7 @@ package net.yumig.mkmj.base;
 
 
 import com.currency.library.controller.BaseActivity;
-import com.currency.library.controller.BaseApplication;
+import com.currency.library.BaseApplication;
 import com.currency.library.widget.view.NavigationBar;
 
 import net.yumig.mkmj.R;

@@ -1,6 +1,6 @@
 package com.currency.library.http;
 
-import com.currency.library.controller.BaseApplication;
+import com.currency.library.BaseApplication;
 import com.currency.library.http.callback.DownloadCallback;
 import com.currency.library.http.callback.RequestCallback;
 import com.currency.library.http.request.FormEncodingRequestBuilder;

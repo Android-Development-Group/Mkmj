@@ -1,6 +1,6 @@
 package com.currency.library.http.request;
 
-import com.currency.library.controller.BaseApplication;
+import com.currency.library.BaseApplication;
 import com.currency.library.http.progress.ProgressRequestBody;
 import com.currency.library.http.progress.ProgressRequestListener;
 import com.currency.library.utils.Logger;
