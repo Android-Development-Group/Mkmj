@@ -23,9 +23,6 @@ public class PTWDRequestHelper {
      */
     public static FormEncodingRequestBuilder store() {
         return FormEncodingRequestBuilder.newInstance()
-                .addParam(PTWDRequestHelper.REQUEST_KEY_UID, "")
-                .addParam(PTWDRequestHelper.REQUEST_KEY_TOKEN, "")
-                .addParam(PTWDRequestHelper.REQUEST_KEY_APP_ID, "")
                 .addParam(PTWDRequestHelper.REQUEST_KEY_DEVICE_ID, "");
     }
 
@@ -37,8 +34,6 @@ public class PTWDRequestHelper {
     public static FormEncodingRequestBuilder user() {
         return FormEncodingRequestBuilder.newInstance()
                 .addParam(PTWDRequestHelper.REQUEST_KEY_UID, "")
-                .addParam(PTWDRequestHelper.REQUEST_KEY_TOKEN, "")
-                .addParam(PTWDRequestHelper.REQUEST_KEY_APP_ID, "")
                 .addParam(PTWDRequestHelper.REQUEST_KEY_DEVICE_ID, "");
     }
 
@@ -50,8 +45,6 @@ public class PTWDRequestHelper {
     public static FormEncodingRequestBuilder shopCar() {
         return FormEncodingRequestBuilder.newInstance()
                 .addParam(PTWDRequestHelper.REQUEST_KEY_UID, "")
-                .addParam(PTWDRequestHelper.REQUEST_KEY_TOKEN, "")
-                .addParam(PTWDRequestHelper.REQUEST_KEY_APP_ID, "")
                 .addParam(PTWDRequestHelper.REQUEST_KEY_DEVICE_ID, "");
     }
 }

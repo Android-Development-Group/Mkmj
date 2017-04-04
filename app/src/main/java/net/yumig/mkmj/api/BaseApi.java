@@ -17,7 +17,8 @@ public abstract class BaseApi {
     public static int HOST_NOW;//当前环境
 
     //e.g.
-    public static String WEB_RTC = "";
+    public static String GANK_IO_URL = "";
+
     public static String QRCODE_BASE_URL = "";
     public static String STORE_BASE_URL = "";
 
@@ -29,17 +30,17 @@ public abstract class BaseApi {
         HOST_NOW = environment;
         switch (environment) {
             case 1:
-                WEB_RTC = "";
+                GANK_IO_URL = "http://gank.io/api/data/";
                 QRCODE_BASE_URL = "";
                 STORE_BASE_URL = "";
                 break;
             case 2:
-                WEB_RTC = "";
+                GANK_IO_URL = "http://gank.io/api/data/";
                 QRCODE_BASE_URL = "";
                 STORE_BASE_URL = "";
                 break;
             case 3:
-                WEB_RTC = "";
+                GANK_IO_URL = "http://gank.io/api/data/";
                 QRCODE_BASE_URL = "";
                 STORE_BASE_URL = "";
                 break;
@@ -59,6 +60,15 @@ public abstract class BaseApi {
         public static final String URL_CARD_MYCARD = "api/register";
         public static final String URL_CARD_MYCARD2 = "api/register";
         public static final String URL_CARD_MYCARD3 = "api/register";
+        public static final String URL_GET_VERSION = "api/register";
+
+
+        /**
+         * Gank.io
+         */
+        public static final String URL_ANDROID_10_1 = "Android/10/1";
+        public static final String URL_ALL_20_2 = "all/20/2";
+        public static final String URL_FULI_10_1 = "福利/10/1";
     }
 
 }

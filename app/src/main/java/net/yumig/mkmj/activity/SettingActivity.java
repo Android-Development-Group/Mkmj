@@ -11,7 +11,7 @@ import com.currency.library.widget.image.RoundImageView;
 import com.currency.library.widget.scroll.SupportScrollView;
 
 import net.yumig.mkmj.R;
-import net.yumig.mkmj.TestActivity;
+import net.yumig.mkmj.test.TestActivity;
 import net.yumig.mkmj.base.TitleActivity;
 
 import butterknife.BindView;

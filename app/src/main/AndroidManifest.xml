@@ -52,7 +52,7 @@
         <activity android:name=".activity.SettingActivity"/>
         <activity android:name=".activity.SetNickNameActivity"/>
         <activity android:name=".activity.ChoseHeadImgActivity"/>
-        <activity android:name=".TestActivity">
+        <activity android:name=".test.TestActivity">
         </activity>
     </application>
 

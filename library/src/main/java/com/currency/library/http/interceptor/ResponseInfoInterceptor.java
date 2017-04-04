@@ -2,6 +2,7 @@ package com.currency.library.http.interceptor;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -54,6 +55,7 @@ public class ResponseInfoInterceptor implements Interceptor {
             JSONObject jsonObject = null;
             try {
                 jsonObject = JSON.parseObject(bufferString);
+                Log.e(TAG, "####intercept: " + jsonObject.toString());
                 if (jsonObject != null) {
                     final Integer httpCode = jsonObject.getInteger("http_code");
                     final String msg = jsonObject.getString("msg");
