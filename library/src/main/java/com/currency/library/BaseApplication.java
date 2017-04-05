@@ -12,7 +12,6 @@ import com.currency.library.utils.hawk.LogLevel;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import butterknife.ButterKnife;
-import okhttp3.OkHttpClient;
 
 /**
  * Description: BaseApplication
@@ -26,7 +25,7 @@ public abstract class BaseApplication extends Application {
     private static final String TAG = "BaseApplication";
     private static final String KEY_APP_ID = "app_id";
     private static Context mContext;
-    private static OkHttpClient mOkHttpClient;//OkHttpClient
+//    private static OkHttpClient mOkHttpClient;//OkHttpClient
     private static int maxAge;//网络缓存最大时间
 
     private static DiskFileCacheHelper mDiskFileCacheHelper;//磁盘文件缓存器
@@ -54,7 +53,7 @@ public abstract class BaseApplication extends Application {
                 .setLogLevel(isDebug ? Logger.LogLevel.FULL : Logger.LogLevel.FULL)
                 .setSaveLog(true);
         //OkHttp初始化
-        mOkHttpClient = initOkHttpClient();
+//        mOkHttpClient = initOkHttpClient();
 
         //开启bugly
         CrashReport.initCrashReport(getApplicationContext(), getBuglyKey(), isDebug);
@@ -81,9 +80,9 @@ public abstract class BaseApplication extends Application {
         return mContext;
     }
 
-    public static OkHttpClient getOkHttpClient() {
-        return mOkHttpClient;
-    }
+//    public static OkHttpClient getOkHttpClient() {
+//        return mOkHttpClient;
+//    }
 
     public static int getMaxAge() {
         return maxAge;
@@ -157,7 +156,7 @@ public abstract class BaseApplication extends Application {
     protected abstract void onCrash(Throwable ex);
 
 
-    public abstract OkHttpClient initOkHttpClient();
+//    public abstract OkHttpClient initOkHttpClient();
 
     /**
      * 生成供应用使用的deviceId

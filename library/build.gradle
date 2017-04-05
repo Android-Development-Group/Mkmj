@@ -39,7 +39,7 @@ dependencies {
     compile 'com.squareup.okio:okio:1.8.0'
 
     compile 'com.tencent.bugly:crashreport:1.2.8'
-    compile 'com.umeng.analytics:analytics:latest.integration'
+//    compile 'com.umeng.analytics:analytics:latest.integration'
 
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.2.3'

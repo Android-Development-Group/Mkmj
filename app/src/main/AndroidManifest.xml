@@ -52,8 +52,8 @@
         <activity android:name=".activity.SettingActivity"/>
         <activity android:name=".activity.SetNickNameActivity"/>
         <activity android:name=".activity.ChoseHeadImgActivity"/>
-        <activity android:name=".test.TestActivity">
-        </activity>
+
+        <activity android:name=".test.GankTestActivity"/>
     </application>
 
 </manifest>

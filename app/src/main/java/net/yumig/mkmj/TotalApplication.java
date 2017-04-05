@@ -1,21 +1,14 @@
 package net.yumig.mkmj;
 
-import com.currency.library.controller.ActivityManager;
 import com.currency.library.BaseApplication;
-import com.currency.library.http.OkHttpManager;
-import com.currency.library.http.interceptor.CacheStrategyInterceptor;
-import com.currency.library.http.interceptor.HeaderInfoInterceptor;
-import com.currency.library.http.interceptor.NetworkInterceptor;
-import com.currency.library.http.interceptor.ResponseInfoInterceptor;
-import com.currency.library.utils.AppUtils;
+import com.currency.library.controller.ActivityManager;
 import com.currency.library.utils.Logger;
 import com.currency.library.utils.SDCardUtils;
+import com.wzgiceman.rxretrofitlibrary.retrofit_rx.RxRetrofitApp;
 
-import net.yumig.mkmj.api.BaseApi;
+import net.yumig.mkmj.api.Base1Api;
 
 import java.io.File;
-
-import okhttp3.OkHttpClient;
 
 /**
  * Description: TotalApplication
@@ -37,13 +30,14 @@ public class TotalApplication extends BaseApplication {
             System.out.println(TAG + "-Create-" + getSdCardPath() + ":===================>" + isSuccess);
         }
 
+        RxRetrofitApp.init(this);
 
     }
 
     @Override
     protected void initEnvironment() {
         //初始化Service Api
-        BaseApi.init(BaseApi.HOST_TEST);
+        Base1Api.init(Base1Api.HOST_TEST);
     }
 
     @Override
@@ -54,7 +48,7 @@ public class TotalApplication extends BaseApplication {
     @Override
     protected boolean isDebug() {
         //根据需求更改
-        return BaseApi.isInnerEnvironment();
+        return Base1Api.isInnerEnvironment();
     }
 
     @Override
@@ -93,16 +87,6 @@ public class TotalApplication extends BaseApplication {
         return 0;
     }
 
-    @Override
-    public OkHttpClient initOkHttpClient() {
-        return OkHttpManager.getInstance(getNetworkCacheDirectoryPath(), getNetworkCacheSize())
-                .addInterceptor(new NetworkInterceptor())
-                .addInterceptor(new ResponseInfoInterceptor())
-                .addInterceptor(new CacheStrategyInterceptor())
-                .addInterceptor(new HeaderInfoInterceptor(AppUtils.getVersionName(this)))
-                .build();
-    }
-
     /**
      * 捕捉到异常就退出App
      *
@@ -113,5 +97,6 @@ public class TotalApplication extends BaseApplication {
         Logger.e("APP崩溃了,错误信息是" + ex.getMessage());
         ex.printStackTrace();
         ActivityManager.getInstance().finishAllActivity();
+        ActivityManager.getInstance().killProcess(this);
     }
 }

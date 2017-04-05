@@ -11,8 +11,8 @@ import com.currency.library.widget.image.RoundImageView;
 import com.currency.library.widget.scroll.SupportScrollView;
 
 import net.yumig.mkmj.R;
-import net.yumig.mkmj.test.TestActivity;
 import net.yumig.mkmj.base.TitleActivity;
+import net.yumig.mkmj.test.GankTestActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -92,7 +92,7 @@ public class SettingActivity extends TitleActivity {
                 break;
             case R.id.btn_loginout:
                 //注销
-                startActivity(TestActivity.class);
+                startActivity(GankTestActivity.class);
                 break;
         }
     }

@@ -16,8 +16,6 @@ import com.currency.library.BaseApplication;
 import com.currency.library.R;
 import com.currency.library.controller.eventbus.EventBusHelper;
 import com.currency.library.controller.intent.FragmentIntent;
-import com.currency.library.http.OkHttpRequestHelper;
-import com.currency.library.http.callback.SimpleFastJsonCallback;
 import com.currency.library.utils.DiskFileCacheHelper;
 import com.currency.library.utils.NetworkLogUtil;
 import com.currency.library.utils.StringUtils;
@@ -45,7 +43,7 @@ public abstract class BaseFragment<App extends BaseApplication> extends Fragment
     protected Bundle args;//传递的参数值
 
     protected App mApp;
-    private OkHttpClient mOkHttpClient;
+//    private OkHttpClient mOkHttpClient;
     protected LoadingHUD loading;//加载框
 
     protected DiskFileCacheHelper mDiskFileCacheHelper;//磁盘文件缓存器
@@ -81,7 +79,7 @@ public abstract class BaseFragment<App extends BaseApplication> extends Fragment
         super.onAttach(activity);
         mActivity = (FragmentActivity) activity;
         mApp = (App) mActivity.getApplication();
-        mOkHttpClient = BaseApplication.getOkHttpClient();
+//        mOkHttpClient = BaseApplication.getOkHttpClient();
         this.loading = LoadingHUD.getInstance(activity);
         loading.setSpinnerType(LoadingHUD.SIMPLE_ROUND_SPINNER);
         mDiskFileCacheHelper = mApp.getDiskFileCacheHelper();
@@ -127,10 +125,10 @@ public abstract class BaseFragment<App extends BaseApplication> extends Fragment
         super.onStop();
         loading.dismiss();
         //Fragment停止时取消所有请求
-        String[] urls = getRequestUrls();
-        for (String url : urls) {
-            OkHttpRequestHelper.newInstance().cancelRequest(url);
-        }
+//        String[] urls = getRequestUrls();
+//        for (String url : urls) {
+//            OkHttpRequestHelper.newInstance().cancelRequest(url);
+//        }
     }
 
     @Override
@@ -273,69 +271,6 @@ public abstract class BaseFragment<App extends BaseApplication> extends Fragment
             transaction.replace(R.id.fragment_container, targetFragment, targetFragment.getClass().getName()).addToBackStack(tag).commit();
         else
             transaction.add(R.id.fragment_container, targetFragment, targetFragment.getClass().getName()).commit();
-    }
-
-    /**
-     * 网络请求
-     *
-     * @param request  request主体
-     * @param callback 请求回调(建议使用SimpleFastJsonCallback)
-     */
-    @Deprecated
-    protected void networkRequest(Request request, Callback callback) {
-        NetworkLogUtil.addLog(request);
-        if (request == null)
-            throw new NullPointerException("request为空");
-        loading.show();
-        mOkHttpClient.newCall(request).enqueue(callback);
-    }
-
-    /**
-     * 网络请求
-     *
-     * @param request  request主体
-     * @param callback 请求回调(建议使用SimpleFastJsonCallback)
-     */
-    @Deprecated
-    protected void networkRequest(Request request, Callback callback, boolean isLoadingShow) {
-        NetworkLogUtil.addLog(request);
-        if (request == null)
-            throw new NullPointerException("request为空");
-        if (isLoadingShow)
-            loading.show();
-        mOkHttpClient.newCall(request).enqueue(callback);
-    }
-
-    @Deprecated
-    protected <T extends Serializable> void networkRequestCache(Request request, SimpleFastJsonCallback<T> callback, long pastTimer) {
-        networkRequestCache(request, callback, pastTimer, true);
-    }
-
-    /**
-     * 网络请求(首先查找文件缓存,如果缓存有就不在进行网络请求)
-     *
-     * @param request   request主体
-     * @param callback  请求回调(建议使用SimpleFastJsonCallback)
-     * @param pastTimer 过期时间阀值
-     */
-    protected <T extends Serializable> void networkRequestCache(Request request, SimpleFastJsonCallback<T> callback, long pastTimer, boolean showLoading) {
-        String url = request.url().toString();
-        if (url.contains("?"))
-            url = url.substring(0, url.indexOf("?"));
-        T cacheData = (T) mDiskFileCacheHelper.getAsSerializable(url);
-        if (cacheData != null) {
-            callback.onSuccess(url, cacheData);
-            callback.onFinish(url, true, "");
-        }
-        long currentTime = System.currentTimeMillis();//当前时间
-        String past_time = mDiskFileCacheHelper.getAsString(url + "_past_time");
-        //获取过期时间
-        long pastTime = !StringUtils.isEmpty(past_time) ? Long.parseLong(past_time) : currentTime + pastTimer;
-        if (StringUtils.isEmpty(past_time) || currentTime > pastTime || null == cacheData) {
-            if (cacheData == null && showLoading) loading.show();
-            mDiskFileCacheHelper.put(url + "_past_time", String.valueOf(currentTime + pastTimer));//存入过期时间
-            mOkHttpClient.newCall(request).enqueue(callback);
-        }
     }
 
     /**
