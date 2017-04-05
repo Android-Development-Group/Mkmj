@@ -3,10 +3,11 @@ package net.yumig.mkmj.test;
 import java.io.Serializable;
 
 /**
+ * http://gank.io/api/data/Android/10/1
  * Created by T5-Jusenr on 2017/4/4.
  */
 
-public class GankBean /*extends RetrofitBean<List<GankBean>>*/ implements Serializable {
+public class GankBean implements Serializable {
 
 //    "_id": "58ddcb2b421aa969f51a911e",
 //            "createdAt": "2017-03-31T11:21:15.303Z",
