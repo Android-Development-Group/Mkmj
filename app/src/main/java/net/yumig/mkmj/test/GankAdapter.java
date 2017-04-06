@@ -37,8 +37,8 @@ public class GankAdapter extends RecyclerView.Adapter<GankAdapter.GankViewHolder
 
     @Override
     public void onBindViewHolder(GankViewHolder holder, int position) {
-        Glide.with(context).load(datas.get(position).getUrl()).into(holder.img);
-//        holder.who.setText(datas.get(position).getWho());
+        Glide.with(context).load(datas.get(position).getUrl()+"?imageView2/0/w/600").into(holder.img);
+        holder.who.setText(datas.get(position).getWho());
 //        holder.desc.setText(datas.get(position).getDesc());
     }
 

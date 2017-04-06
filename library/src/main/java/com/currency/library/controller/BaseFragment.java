@@ -17,16 +17,11 @@ import com.currency.library.R;
 import com.currency.library.controller.eventbus.EventBusHelper;
 import com.currency.library.controller.intent.FragmentIntent;
 import com.currency.library.utils.DiskFileCacheHelper;
-import com.currency.library.utils.NetworkLogUtil;
-import com.currency.library.utils.StringUtils;
 import com.currency.library.widget.view.LoadingHUD;
 
 import java.io.Serializable;
 
 import butterknife.ButterKnife;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 
 /**
  * 基础Fragment

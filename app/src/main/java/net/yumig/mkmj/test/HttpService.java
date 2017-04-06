@@ -1,5 +1,7 @@
 package net.yumig.mkmj.test;
 
+import net.yumig.mkmj.api.TotalBaseApi;
+
 import retrofit2.http.GET;
 import rx.Observable;
 
@@ -8,6 +10,9 @@ import rx.Observable;
  */
 public interface HttpService {
 
-    @GET("福利/10/2")
+    @GET(TotalBaseApi.Url.URL_FULI_10_1)
     Observable<String> getGank();
+
+    @GET(TotalBaseApi.Url.URL_FULI_10)
+    Observable<String> getGank_1();
 }

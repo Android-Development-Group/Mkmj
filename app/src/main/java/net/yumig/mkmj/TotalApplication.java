@@ -6,7 +6,7 @@ import com.currency.library.utils.Logger;
 import com.currency.library.utils.SDCardUtils;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.RxRetrofitApp;
 
-import net.yumig.mkmj.api.Base1Api;
+import net.yumig.mkmj.api.TotalBaseApi;
 
 import java.io.File;
 
@@ -19,6 +19,7 @@ import java.io.File;
  */
 public class TotalApplication extends BaseApplication {
     private static final String TAG = "MkMj_Log";
+    private static final String IMG_GANK = "?imageView2/0/w/200";
 
     @Override
     public void onCreate() {
@@ -37,7 +38,7 @@ public class TotalApplication extends BaseApplication {
     @Override
     protected void initEnvironment() {
         //初始化Service Api
-        Base1Api.init(Base1Api.HOST_TEST);
+        TotalBaseApi.init(TotalBaseApi.HOST_TEST);
     }
 
     @Override
@@ -48,7 +49,7 @@ public class TotalApplication extends BaseApplication {
     @Override
     protected boolean isDebug() {
         //根据需求更改
-        return Base1Api.isInnerEnvironment();
+        return TotalBaseApi.isInnerEnvironment();
     }
 
     @Override

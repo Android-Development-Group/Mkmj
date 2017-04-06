@@ -8,7 +8,7 @@ package net.yumig.mkmj.api;
  * Date       : 2017/04/04 15:12.
  */
 
-public abstract class Base1Api {
+public abstract class TotalBaseApi {
 
     public static final int HOST_FORMAL = 1;//正式环境
     public static final int HOST_DEV = 2;//开发环境
@@ -18,6 +18,7 @@ public abstract class Base1Api {
 
     //e.g.
     public static String GANK_IO_URL = "";
+    public static String GANK_IO_1_URL = "";
 
     public static String QRCODE_BASE_URL = "";
     public static String STORE_BASE_URL = "";
@@ -31,17 +32,17 @@ public abstract class Base1Api {
         switch (environment) {
             case 1:
                 GANK_IO_URL = "http://gank.io/api/data/";
-                QRCODE_BASE_URL = "";
+                GANK_IO_1_URL = "http://gank.io/api/random/data/";
                 STORE_BASE_URL = "";
                 break;
             case 2:
                 GANK_IO_URL = "http://gank.io/api/data/";
-                QRCODE_BASE_URL = "";
+                GANK_IO_1_URL = "http://gank.io/api/random/data/";
                 STORE_BASE_URL = "";
                 break;
             case 3:
                 GANK_IO_URL = "http://gank.io/api/data/";
-                QRCODE_BASE_URL = "";
+                GANK_IO_1_URL = "http://gank.io/api/random/data/";
                 STORE_BASE_URL = "";
                 break;
         }
@@ -66,9 +67,9 @@ public abstract class Base1Api {
         /**
          * Gank.io
          */
-        public static final String URL_ANDROID_10_1 = "Android/10/1";
-        public static final String URL_ALL_20_2 = "all/20/2";
-        public static final String URL_FULI_10_1 = "福利/10/1";
+        public static final String URL_FULI_10_1 = "福利/20/1";
+
+        public static final String URL_FULI_10 = "福利/20";
     }
 
 }

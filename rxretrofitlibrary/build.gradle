@@ -2,8 +2,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'org.greenrobot.greendao'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion '23.0.3'
+    compileSdkVersion 23
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         minSdkVersion 18
@@ -26,7 +26,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':library')
     /*  */
     compile 'org.greenrobot:greendao:3.2.0'
     /*rx-android-java*/
@@ -34,5 +33,12 @@ dependencies {
     compile 'com.trello:rxlifecycle-components:1.0'
     /*rotrofit*/
     compile 'com.squareup.retrofit2:converter-scalars:2.0.0'
+//    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+
+    /*rx*/
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.2.3'
 }
 
