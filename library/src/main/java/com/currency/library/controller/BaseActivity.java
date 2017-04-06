@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -22,13 +21,18 @@ import com.currency.library.R;
 import com.currency.library.controller.eventbus.EventBusHelper;
 import com.currency.library.controller.handler.WeakHandler;
 import com.currency.library.utils.DiskFileCacheHelper;
-import com.currency.library.utils.NetworkUtils;;
+import com.currency.library.utils.NetworkUtils;
 import com.currency.library.utils.ToastUtils;
 import com.currency.library.widget.view.LoadingHUD;
+import com.trello.rxlifecycle.LifecycleProvider;
+import com.trello.rxlifecycle.android.ActivityEvent;
+import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 import java.io.Serializable;
 
 import butterknife.ButterKnife;
+
+;
 
 
 /**
@@ -38,13 +42,13 @@ import butterknife.ButterKnife;
  * Author     : Jusenr
  * Date       : 2017/04/04 15:12.
  */
-public abstract class BaseActivity<App extends BaseApplication> extends AppCompatActivity {
+public abstract class BaseActivity<App extends BaseApplication> extends RxAppCompatActivity implements LifecycleProvider<ActivityEvent> {
     public static final String TAG = BaseActivity.class.getSimpleName();
 
     private static final int WHAT_ON_HOME_CLICK = 0x1;
     protected Context mContext;
     protected App mApp;
-//    private OkHttpClient mOkHttpClient;
+    //    private OkHttpClient mOkHttpClient;
     protected LoadingHUD loading;
     public boolean isResume;
 
@@ -120,14 +124,6 @@ public abstract class BaseActivity<App extends BaseApplication> extends AppCompa
      */
     protected boolean onNetworkIsAvailable() {
         return NetworkUtils.isNetworkReachable(this);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        ActivityManager.getInstance().removeActivity(this);
-        EventBusHelper.unregister(this);//反注册EventBus
-        unregisterReceiver(mReceiver);
     }
 
     @Override
@@ -387,6 +383,21 @@ public abstract class BaseActivity<App extends BaseApplication> extends AppCompa
         }
     }
 
+    /**
+     * 注册统计
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isResume = true;
+//        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+//        MobclickAgent.onPause(this);
+    }
 
     @Override
     protected void onStop() {
@@ -400,18 +411,12 @@ public abstract class BaseActivity<App extends BaseApplication> extends AppCompa
 //        }
     }
 
-    /**
-     * 注册统计
-     */
-    protected void onResume() {
-        super.onResume();
-        isResume = true;
-//        MobclickAgent.onResume(this);
-    }
-
-    protected void onPause() {
-        super.onPause();
-//        MobclickAgent.onPause(this);
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityManager.getInstance().removeActivity(this);
+        EventBusHelper.unregister(this);//反注册EventBus
+        unregisterReceiver(mReceiver);
     }
 
 }

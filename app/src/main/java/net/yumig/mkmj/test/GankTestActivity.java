@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
-import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
+import com.currency.library.controller.BaseActivity;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception.ApiException;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.http.HttpManager;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.listener.HttpOnNextListener;
@@ -26,7 +26,7 @@ import java.util.List;
  * Created by T5-Jusenr on 2017/4/6.
  */
 
-public class GankTestActivity extends RxAppCompatActivity implements View.OnClickListener, HttpOnNextListener {
+public class GankTestActivity extends BaseActivity implements View.OnClickListener, HttpOnNextListener {
 
     private HttpManager manager;
     private GankApi gankEntity;
@@ -35,6 +35,21 @@ public class GankTestActivity extends RxAppCompatActivity implements View.OnClic
     private int i = 0;
 
     private RecyclerView mRv_test;
+
+    @Override
+    public void setContentView() {
+
+    }
+
+    @Override
+    protected void onViewCreatedFinish(Bundle saveInstanceState) {
+
+    }
+
+    @Override
+    protected String[] getRequestUrls() {
+        return new String[0];
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
