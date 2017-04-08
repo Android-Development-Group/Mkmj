@@ -1,18 +1,23 @@
 package net.yumig.mkmj.activity;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.currency.library.controller.ActivityManager;
 import com.currency.library.controller.BaseActivity;
+import com.currency.library.utils.ToastUtils;
+import com.currency.library.widget.view.DragPointView;
+import com.currency.library.widget.viewpager.UnScrollableViewPager;
 
 import net.yumig.mkmj.R;
 import net.yumig.mkmj.fragment.MyFragment;
@@ -21,45 +26,39 @@ import net.yumig.mkmj.fragment.Shop1Fragment;
 import net.yumig.mkmj.fragment.ShopCarFragment;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity
+        implements ViewPager.OnPageChangeListener,
+        DragPointView.OnDragListencer {
 
-    @BindView(R.id.fragment_container)
-    FrameLayout fragmentContainer;
-    @BindView(R.id.ib_shop)
-    ImageView ibShop;
-    @BindView(R.id.tv_shop)
-    TextView tvShop;
-    @BindView(R.id.rl_shop)
-    RelativeLayout rlShop;
-    @BindView(R.id.ib_near)
-    ImageView ibNear;
-    @BindView(R.id.tv_near)
-    TextView tvNear;
-    @BindView(R.id.rl_near)
-    RelativeLayout rlNear;
-    @BindView(R.id.ib_shopcar)
-    ImageView ibShopcar;
-    @BindView(R.id.tv_shopcar)
-    TextView tvShopcar;
-    @BindView(R.id.rl_shopcar)
-    RelativeLayout rlShopcar;
-    @BindView(R.id.ib_my)
-    ImageView ibMy;
-    @BindView(R.id.tv_my)
-    TextView tvMy;
-    @BindView(R.id.rl_my)
-    RelativeLayout rlMy;
+    @BindView(R.id.main_viewpager)
+    UnScrollableViewPager mMainViewpager;
+    @BindView(R.id.tab_img_chats)
+    ImageView mTabImgChats;
+    @BindView(R.id.tab_text_chats)
+    TextView mTabTextChats;
+    @BindView(R.id.seal_num)
+    DragPointView mSealNum;
+    @BindView(R.id.tab_img_contact)
+    ImageView mTabImgContact;
+    @BindView(R.id.tab_text_contact)
+    TextView mTabTextContact;
+    @BindView(R.id.tab_img_find)
+    ImageView mTabImgFind;
+    @BindView(R.id.tab_text_find)
+    TextView mTabTextFind;
+    @BindView(R.id.tab_img_me)
+    ImageView mTabImgMe;
+    @BindView(R.id.tab_text_me)
+    TextView mTabTextMe;
+    @BindView(R.id.mine_red)
+    ImageView mMineRed;
 
-    private ArrayList<Fragment> mFragments;
-    private RelativeLayout[] mRelativeLayoutList;
-    private Shop1Fragment shop1Fragment;
-    private NearFragment nearFragment;
-    private ShopCarFragment shopCarFragment;
-    private MyFragment myFragment;
+    private List<Fragment> mFragment = new ArrayList<>();
 
     @Override
     public void setContentView() {
@@ -68,7 +67,10 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onViewCreatedFinish(Bundle saveInstanceState) {
-        initView();
+        changeTextViewColor();
+        changeSelectedTabState(0);
+        initMainViewPager();
+
     }
 
     @Override
@@ -76,79 +78,127 @@ public class MainActivity extends BaseActivity {
         return new String[0];
     }
 
-    private void initView() {
-        addFragments();
+    private void initMainViewPager() {
+        mFragment.add(new Shop1Fragment());
+        mFragment.add(new NearFragment());
+        mFragment.add(new ShopCarFragment());
+        mFragment.add(new MyFragment());
+        FragmentPagerAdapter fragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                return mFragment.get(position);
+            }
+
+            @Override
+            public int getCount() {
+                return mFragment.size();
+            }
+        };
+        mMainViewpager.setAdapter(fragmentPagerAdapter);
+        mMainViewpager.setOffscreenPageLimit(4);
+        mMainViewpager.setOnPageChangeListener(this);
     }
 
-    private void addFragments() {
-        //        mFragments = new SparseArray<>();
-        //        mFragments.put(0, Fragment.instantiate(mContext, Shop1Fragment.class.getName()));
-        //        mFragments.put(1, Fragment.instantiate(mContext, NearFragment.class.getName()));
-        //        mFragments.put(2, Fragment.instantiate(mContext, ShopCarFragment.class.getName()));
-        //        mFragments.put(3, Fragment.instantiate(mContext, MyFragment.class.getName()));
-
-
-        shop1Fragment = new Shop1Fragment();
-        nearFragment = new NearFragment();
-        shopCarFragment = new ShopCarFragment();
-        myFragment = new MyFragment();
-        mFragments = new ArrayList<>();
-        mFragments.add(shop1Fragment);
-        mFragments.add(nearFragment);
-        mFragments.add(shopCarFragment);
-        mFragments.add(myFragment);
-
-        mRelativeLayoutList = new RelativeLayout[4];
-        mRelativeLayoutList[0] = rlShop;
-        mRelativeLayoutList[1] = rlNear;
-        mRelativeLayoutList[2] = rlShopcar;
-        mRelativeLayoutList[3] = rlMy;
-        mRelativeLayoutList[0].setSelected(true);   //default selected
-        //add the first fragment and hide other.
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, shop1Fragment)
-                .add(R.id.fragment_container, nearFragment)
-                .add(R.id.fragment_container, shopCarFragment)
-                .add(R.id.fragment_container, myFragment)
-                .hide(nearFragment).hide(shopCarFragment)
-                .hide(myFragment).show(shop1Fragment).commit();
-
+    private void changeTextViewColor() {
+        mTabImgChats.setBackgroundDrawable(getResources().getDrawable(R.drawable.tabbar_shangcheng));
+        mTabImgContact.setBackgroundDrawable(getResources().getDrawable(R.drawable.tabbar_fujin));
+        mTabImgFind.setBackgroundDrawable(getResources().getDrawable(R.drawable.tabbar_gouwuche));
+        mTabImgMe.setBackgroundDrawable(getResources().getDrawable(R.drawable.tabbar_wode));
+        mTabTextChats.setTextColor(Color.parseColor("#abadbb"));
+        mTabTextContact.setTextColor(Color.parseColor("#abadbb"));
+        mTabTextFind.setTextColor(Color.parseColor("#abadbb"));
+        mTabTextMe.setTextColor(Color.parseColor("#abadbb"));
     }
 
-    private int index;
-    private int currentTabIndex;
+    private void changeSelectedTabState(int position) {
+        switch (position) {
+            case 0:
+                mTabTextChats.setTextColor(getResources().getColor(R.color.appRed));
+                mTabImgChats.setBackgroundDrawable(getResources().getDrawable(R.drawable.tabbar_shangchen_pre));
+                break;
+            case 1:
+                mTabTextContact.setTextColor(getResources().getColor(R.color.appRed));
+                mTabImgContact.setBackgroundDrawable(getResources().getDrawable(R.drawable.tabbar_fujin_pre));
+                break;
+            case 2:
+                mTabTextFind.setTextColor(getResources().getColor(R.color.appRed));
+                mTabImgFind.setBackgroundDrawable(getResources().getDrawable(R.drawable.tabbar_gouwuche_pre));
+                break;
+            case 3:
+                mTabTextMe.setTextColor(getResources().getColor(R.color.appRed));
+                mTabImgMe.setBackgroundDrawable(getResources().getDrawable(R.drawable.tabbar_wode_pre));
+                break;
+        }
+    }
 
-    @OnClick({R.id.rl_shop, R.id.rl_near, R.id.rl_shopcar, R.id.rl_my})
+    long firstClick = 0;
+    long secondClick = 0;
+
+    @OnClick({R.id.seal_chat, R.id.seal_contact_list, R.id.seal_find, R.id.seal_me})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.rl_shop:
-                index = 0;
+            case R.id.seal_chat:
+                if (mMainViewpager.getCurrentItem() == 0) {
+                    if (firstClick == 0) {
+                        firstClick = System.currentTimeMillis();
+                    } else {
+                        secondClick = System.currentTimeMillis();
+                    }
+                    Log.i("MainActivity", "time = " + (secondClick - firstClick));
+                    if (secondClick - firstClick > 0 && secondClick - firstClick <= 800) {
+//                        mConversationListFragment.focusUnreadItem();
+                        firstClick = 0;
+                        secondClick = 0;
+                    } else if (firstClick != 0 && secondClick != 0) {
+                        firstClick = 0;
+                        secondClick = 0;
+                    }
+                }
+                mMainViewpager.setCurrentItem(0, false);
                 break;
-            case R.id.rl_near:
-                index = 1;
+            case R.id.seal_contact_list:
+                mMainViewpager.setCurrentItem(1, false);
                 break;
-            case R.id.rl_shopcar:
-                index = 2;
+            case R.id.seal_find:
+                mMainViewpager.setCurrentItem(2, false);
                 break;
-            case R.id.rl_my:
-                index = 3;
+            case R.id.seal_me:
+                mMainViewpager.setCurrentItem(3, false);
+                mMineRed.setVisibility(View.GONE);
                 break;
         }
-        if (currentTabIndex != index) {
-            FragmentTransaction trx = getSupportFragmentManager()
-                    .beginTransaction();
-            trx.hide(mFragments.get(currentTabIndex));
-            if (!mFragments.get(index).isAdded()) {
-                trx.add(R.id.fragment_container, mFragments.get(index));
-            }
-            trx.show(mFragments.get(index)).commit();
-        }
-        mRelativeLayoutList[currentTabIndex].setSelected(false);
-        // hold current tab selected
-        mRelativeLayoutList[index].setSelected(true);
-        currentTabIndex = index;
     }
 
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        changeTextViewColor();
+        changeSelectedTabState(position);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+    @Override
+    public void onDragOut() {
+        mSealNum.setVisibility(View.GONE);
+        ToastUtils.showToastShort(mContext, "清除成功");
+
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (intent.getBooleanExtra("systemconversation", false)) {
+            mMainViewpager.setCurrentItem(0, false);
+        }
+    }
 
     //记录用户首次点击返回键的时间
     private long firstTime = 0;
@@ -167,5 +217,4 @@ public class MainActivity extends BaseActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-
 }

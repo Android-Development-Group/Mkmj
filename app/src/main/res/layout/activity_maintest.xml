@@ -16,5 +16,5 @@
         android:layout_weight="1"
         android:background="#F5F5F5"/>
 
-    <include layout="@layout/layout_bottom"/>
+    <include layout="@layout/layout_bottom1"/>
 </LinearLayout>
