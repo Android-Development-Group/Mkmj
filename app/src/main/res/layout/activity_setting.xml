@@ -146,32 +146,32 @@
                     android:text="性别"
                     android:textSize="18sp"/>
 
-                <TextView
-                    android:id="@+id/tv_man"
+                <RadioGroup
+                    android:id="@+id/rg_modes"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginRight="25dp"
-                    android:layout_toLeftOf="@+id/tv_woman"
-                    android:layout_toStartOf="@+id/tv_woman"
-                    android:drawableLeft="@drawable/duihao_red"
-                    android:drawablePadding="5dp"
-                    android:gravity="right|center_vertical"
-                    android:text="男"
-                    android:textSize="18sp"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_woman"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
-                    android:drawableLeft="@drawable/duihao_gray"
-                    android:drawablePadding="5dp"
-                    android:gravity="right|center_vertical"
-                    android:text="女"
-                    android:textSize="18sp"/>
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimens_8dp"
+                    android:checkedButton="@+id/rb_male"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_male"
+                        style="@style/CheckboxTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/me_setting_male"/>
+
+
+                    <RadioButton
+                        android:id="@+id/rb_female"
+                        style="@style/CheckboxTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_size_10sp"
+                        android:text="@string/me_setting_female"/>
+                </RadioGroup>
 
             </RelativeLayout>
             <!--地区-->

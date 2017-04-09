@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.currency.library.utils.ToastUtils;
 import com.currency.library.widget.image.RoundImageView;
 import com.currency.library.widget.scroll.SupportScrollView;
 
@@ -27,10 +30,12 @@ public class SettingActivity extends TitleActivity {
     TextView tvNickName;
     @BindView(R.id.rl_nick_name)
     RelativeLayout rlNickName;
-    @BindView(R.id.tv_man)
-    TextView tvMan;
-    @BindView(R.id.tv_woman)
-    TextView tvWoman;
+    @BindView(R.id.rg_modes)
+    RadioGroup mRgModes;
+    @BindView(R.id.rb_male)
+    RadioButton mRbMale;
+    @BindView(R.id.rb_female)
+    RadioButton mRbFemale;
     @BindView(R.id.tv_area)
     TextView tvArea;
     @BindView(R.id.rl_area)
@@ -57,6 +62,16 @@ public class SettingActivity extends TitleActivity {
     @Override
     protected void onViewCreatedFinish(Bundle saveInstanceState) {
         addNavigation();
+
+        mRgModes.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                final boolean indeterminate = checkedId == R.id.rb_male;
+                setIndeterminateMode(indeterminate);
+            }
+        });
+        setIndeterminateMode(mRgModes.getCheckedRadioButtonId() == R.id.rb_male);
+
     }
 
     @Override
@@ -64,7 +79,7 @@ public class SettingActivity extends TitleActivity {
         return new String[0];
     }
 
-    @OnClick({R.id.rl_header_icon, R.id.rl_nick_name, R.id.tv_man, R.id.tv_woman, R.id.rl_area, R.id.tv_resetPhone, R.id.tv_resetPwd, R.id.btn_loginout})
+    @OnClick({R.id.rl_header_icon, R.id.rl_nick_name, R.id.rl_area, R.id.tv_resetPhone, R.id.tv_resetPwd, R.id.btn_loginout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_header_icon:
@@ -74,12 +89,6 @@ public class SettingActivity extends TitleActivity {
             case R.id.rl_nick_name:
                 startActivity(new Intent(SettingActivity.this, SetNickNameActivity.class));
                 //更改昵称
-                break;
-            case R.id.tv_man:
-                //性别
-                break;
-            case R.id.tv_woman:
-                //性别
                 break;
             case R.id.rl_area:
                 //地区
@@ -95,5 +104,10 @@ public class SettingActivity extends TitleActivity {
                 startActivity(GankTestActivity.class);
                 break;
         }
+    }
+
+    private void setIndeterminateMode(boolean indeterminate) {
+        String s = indeterminate ? "男" : "女";
+        ToastUtils.showToastShort(mContext, s);
     }
 }

@@ -32,6 +32,8 @@
     <string name="me_sale_tuijian">推荐APP</string>
     <string name="me_sale_kefu">客服</string>
     <string name="me_sale_setting">设置</string>
+    <string name="me_setting_male">男</string>
+    <string name="me_setting_female">女</string>
 
 
 </resources>
