@@ -22,11 +22,17 @@ import net.yumig.mkmj.test.entity.resulte.GankResulte;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.OnClick;
+
 /**
  * Created by T5-Jusenr on 2017/4/6.
  */
 
-public class GankTestActivity extends BaseActivity implements View.OnClickListener, HttpOnNextListener {
+public class GankTestActivity extends BaseActivity implements HttpOnNextListener {
+
+    @BindView(R.id.rv_test)
+    RecyclerView mRvTest;
 
     private HttpManager manager;
     private GankApi gankEntity;
@@ -34,32 +40,13 @@ public class GankTestActivity extends BaseActivity implements View.OnClickListen
 
     private int i = 0;
 
-    private RecyclerView mRv_test;
-
     @Override
     public void setContentView() {
-
+        setContentView(R.layout.activity_gank_test);
     }
 
     @Override
     protected void onViewCreatedFinish(Bundle saveInstanceState) {
-
-    }
-
-    @Override
-    protected String[] getRequestUrls() {
-        return new String[0];
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gank_test);
-
-        findViewById(R.id.tv_left_title).setOnClickListener(this);
-        findViewById(R.id.tv_right_title).setOnClickListener(this);
-
-        mRv_test = (RecyclerView) findViewById(R.id.rv_test);
 
         manager = new HttpManager(this, this);
 
@@ -68,21 +55,27 @@ public class GankTestActivity extends BaseActivity implements View.OnClickListen
         gankEntity1 = new Gank1Api();
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-        mRv_test.setLayoutManager(gridLayoutManager);
-        mRv_test.setHasFixedSize(true);
+        mRvTest.setLayoutManager(gridLayoutManager);
+        mRvTest.setHasFixedSize(true);
 
         manager.doHttpDeal(gankEntity);
     }
 
+    @Override
+    protected String[] getRequestUrls() {
+        return new String[0];
+    }
+
+
     private void setadapter(List<GankResulte> list) {
         Log.i("####", "setadapter: " + list);
         GankAdapter gankAdapter = new GankAdapter(this, list);
-        mRv_test.setAdapter(gankAdapter);
+        mRvTest.setAdapter(gankAdapter);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    @OnClick({R.id.tv_left_title, R.id.tv_right_title})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
             case R.id.tv_left_title:
                 finish();
                 break;

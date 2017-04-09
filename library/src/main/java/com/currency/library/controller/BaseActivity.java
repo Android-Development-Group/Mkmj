@@ -85,7 +85,7 @@ public abstract class BaseActivity<App extends BaseApplication> extends RxAppCom
      * @param savedInstanceState
      */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    final protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView();
         ButterKnife.bind(this);
