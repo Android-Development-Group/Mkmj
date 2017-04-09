@@ -53,8 +53,8 @@
         <activity android:name=".activity.SetNickNameActivity"/>
         <activity android:name=".activity.ChoseHeadImgActivity"/>
         <activity android:name=".test.GankTestActivity"/>
-        <activity android:name=".order.OrderDetailsActivity">
-        </activity>
+        <activity android:name=".order.OrderDetailsActivity"/>
+        <activity android:name=".order.RefundServiceActivity"/>
     </application>
 
 </manifest>

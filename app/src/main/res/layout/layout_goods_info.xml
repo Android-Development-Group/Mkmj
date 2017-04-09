@@ -128,7 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/tv_index"
-            android:text="￥46024"
+            android:text="￥4624"
             android:textColor="@color/appRed"/>
 
         <TextView

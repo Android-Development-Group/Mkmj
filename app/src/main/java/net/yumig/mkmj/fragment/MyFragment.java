@@ -8,11 +8,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.currency.library.controller.BaseFragment;
+import com.currency.library.widget.image.RoundImageView;
 
 import net.yumig.mkmj.R;
 import net.yumig.mkmj.activity.SettingActivity;
+import net.yumig.mkmj.order.OrderDetailsActivity;
+import net.yumig.mkmj.order.RefundServiceActivity;
 import net.yumig.mkmj.widget.MyScrollview;
-import com.currency.library.widget.image.RoundImageView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -32,51 +34,51 @@ public class MyFragment extends BaseFragment {
     @BindView(R.id.iv_user_icon)
     RoundImageView ivUserIcon;       //头像
     @BindView(R.id.tv_user_nickname)
-    TextView       tvUserNickname;  //用户昵称
+    TextView tvUserNickname;  //用户昵称
     @BindView(R.id.ll_user)
-    LinearLayout   llUser;
+    LinearLayout llUser;
     @BindView(R.id.rl_user_head_icon)
     RelativeLayout rlUserHeadIcon;
     @BindView(R.id.tv_me_integral)
-    TextView       tvMeIntegral;     //积分
+    TextView tvMeIntegral;     //积分
     @BindView(R.id.ll_integral)
-    LinearLayout   llIntegral;
+    LinearLayout llIntegral;
     @BindView(R.id.tv_me_m_collection)
-    TextView       tvMeMCollection;    //收藏
+    TextView tvMeMCollection;    //收藏
     @BindView(R.id.ll_collection)
-    LinearLayout   llCollection;
+    LinearLayout llCollection;
     @BindView(R.id.tv_me_m_concern)
-    TextView       tvMeMConcern;         //关注
+    TextView tvMeMConcern;         //关注
     @BindView(R.id.ll_concern)
-    LinearLayout   llConcern;
+    LinearLayout llConcern;
     @BindView(R.id.tv_nick_name)
-    TextView       tvMore;
+    TextView tvMore;
     @BindView(R.id.rl_my_order)
     RelativeLayout rlMyOrder;
     @BindView(R.id.tv_pending_payment)
-    TextView       tvPendingPayment;
+    TextView tvPendingPayment;
     @BindView(R.id.tv_wait_for_delivery)
-    TextView       tvWaitForDelivery;
+    TextView tvWaitForDelivery;
     @BindView(R.id.tv_receiving_goods)
-    TextView       tvReceivingGoods;
+    TextView tvReceivingGoods;
     @BindView(R.id.tv_pending_evaluation)
-    TextView       tvPendingEvaluation;
+    TextView tvPendingEvaluation;
     @BindView(R.id.tv_sale_refund)
-    TextView       tvSaleRefund;
+    TextView tvSaleRefund;
     @BindView(R.id.tv_wodeMessage)
-    TextView       tvWodeMessage;
+    TextView tvWodeMessage;
     @BindView(R.id.tv_wodeLocation)
-    TextView       tvWodeLocation;
+    TextView tvWodeLocation;
     @BindView(R.id.tv_wodeTuijian)
-    TextView       tvWodeTuijian;
+    TextView tvWodeTuijian;
     @BindView(R.id.tv_wodeKefu)
-    TextView       tvWodeKefu;
+    TextView tvWodeKefu;
     @BindView(R.id.tv_wodeSetting)
-    TextView       tvWodeSetting;
+    TextView tvWodeSetting;
     @BindView(R.id.ll_me)
-    LinearLayout   llMe;
+    LinearLayout llMe;
     @BindView(R.id.sv_me)
-    MyScrollview   svMe;
+    MyScrollview svMe;
     Unbinder unbinder;
 
     @Override
@@ -112,6 +114,7 @@ public class MyFragment extends BaseFragment {
                 break;
             case R.id.tv_nick_name:
                 //查看更多订单
+                startActivity(OrderDetailsActivity.class);
                 break;
             case R.id.tv_pending_payment:
                 //待付款
@@ -127,6 +130,7 @@ public class MyFragment extends BaseFragment {
                 break;
             case R.id.tv_sale_refund:
                 //退款售后
+                startActivity(RefundServiceActivity.class);
                 break;
             case R.id.tv_wodeMessage:
                 //消息

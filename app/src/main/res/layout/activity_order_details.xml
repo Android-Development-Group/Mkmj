@@ -28,7 +28,6 @@
 
             <include layout="@layout/layout_goods_info"/>
 
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -88,7 +87,8 @@
                     android:padding="5dp"
                     android:text="收货信息"/>
 
-                <view
+                <!--分割线-->
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginLeft="@dimen/dimens_15dp"
@@ -141,12 +141,10 @@
                         android:padding="5dp"
                         android:text="订单信息"/>
 
-                    <view
-                        android:id="view"
+                    <!--分割线-->
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_above="@+id/tv_order_number"
-                        android:layout_below="@+id/order_information"
                         android:layout_marginLeft="@dimen/dimens_15dp"
                         android:layout_marginRight="@dimen/dimens_15dp"
                         android:background="@color/divider_color"/>
@@ -218,7 +216,8 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white">
 
-                <view
+                <!--分割线-->
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginLeft="@dimen/dimens_15dp"
