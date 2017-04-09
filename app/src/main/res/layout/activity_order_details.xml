@@ -14,5 +14,231 @@
         app:nav_main_title="订单详情"
         app:nav_main_title_color="@color/text_color"/>
 
+    <com.currency.library.widget.scroll.SupportScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/navigation_bar"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/navigation_bar"
+            android:orientation="vertical">
+
+            <include layout="@layout/layout_goods_info"/>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimens_20dp"
+                android:background="@color/white"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="运费："/>
+
+                <TextView
+                    android:id="@+id/tv_freight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="￥20"
+                    android:textColor="@color/appRed"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="支付金额："/>
+
+                <TextView
+                    android:id="@+id/tv_payment_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="￥20"
+                    android:textColor="@color/appRed"/>
+
+            </RelativeLayout>
+
+            <!--收货信息-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimens_20dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="收货信息"/>
+
+                <view
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/dimens_15dp"
+                    android:layout_marginRight="@dimen/dimens_15dp"
+                    android:background="@color/divider_color"/>
+
+
+                <TextView
+                    android:id="@+id/tv_consignee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="收货人：高喜超"/>
+
+
+                <TextView
+                    android:id="@+id/tv_contact_information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="联系方式：15012345678"/>
+
+
+                <TextView
+                    android:id="@+id/tv_receiving_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="收货地址：中国.上海"/>
+
+            </LinearLayout>
+
+            <!--订单信息-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimens_20dp"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:id="@+id/ll_order_information"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:padding="5dp"
+                        android:text="订单信息"/>
+
+                    <view
+                        android:id="view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_above="@+id/tv_order_number"
+                        android:layout_below="@+id/order_information"
+                        android:layout_marginLeft="@dimen/dimens_15dp"
+                        android:layout_marginRight="@dimen/dimens_15dp"
+                        android:background="@color/divider_color"/>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/ll_order_information"
+                    android:padding="5dp"
+                    android:text="订单编号："/>
+
+                <TextView
+                    android:id="@+id/tv_order_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/ll_order_information"
+                    android:padding="5dp"
+                    android:text="123456789"
+                    android:textColor="@color/text_color_gray"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/tv_order_number"
+                    android:padding="5dp"
+                    android:text="下单时间："/>
+
+
+                <TextView
+                    android:id="@+id/tv_order_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/tv_order_number"
+                    android:padding="5dp"
+                    android:text="2017-04-09 10:30:25"
+                    android:textColor="@color/text_color_gray"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/tv_order_time"
+                    android:padding="5dp"
+                    android:text="付款时间："/>
+
+                <TextView
+                    android:id="@+id/tv_payment_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/tv_order_time"
+                    android:padding="5dp"
+                    android:text="2017-04-09 10:30:25"
+                    android:textColor="@color/text_color_gray"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <view
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/dimens_15dp"
+                    android:layout_marginRight="@dimen/dimens_15dp"
+                    android:background="@color/divider_color"/>
+
+                <TextView
+                    android:id="@+id/tv_refund"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:padding="5dp"
+                    android:text="退款"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </com.currency.library.widget.scroll.SupportScrollView>
 
 </RelativeLayout>
